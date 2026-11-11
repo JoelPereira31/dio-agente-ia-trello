@@ -80,4 +80,93 @@ pip install -r requirements.txt
 
 ### 4. Configurar as credenciais
 
-Na pasta `agenttaskmanager`, crie um arquivo `.env` com base
+Na pasta `agenttaskmanager`, crie um arquivo `.env` com base no arquivo `.env.exemplo`.
+
+Configure as variáveis:
+
+```env
+GOOGLE_API_KEY=sua_chave_google
+GOOGLE_GENAI_USE_VERTEXAI=0
+
+TRELLO_API_KEY=sua_chave_trello
+TRELLO_API_SECRET=seu_segredo_trello
+TRELLO_TOKEN=seu_token_trello
+```
+
+As credenciais devem ser obtidas nos respectivos serviços.
+
+**Importante:** nunca publique o arquivo `.env` contendo credenciais reais. O projeto utiliza `.gitignore` para evitar seu envio ao GitHub.
+
+Também é necessário configurar o quadro do Trello utilizado pelo agente, conforme a implementação em `agenttaskmanager/agent.py`.
+
+## ▶️ Como executar
+
+Com o ambiente virtual ativado, execute na pasta principal do projeto:
+
+```bash
+adk web
+```
+
+Abra no navegador o endereço indicado pelo terminal, normalmente:
+
+```text
+http://127.0.0.1:8000
+```
+
+Na interface do Google ADK, selecione o agente `agenttaskmanager` e envie suas solicitações.
+
+## 💬 Exemplos de utilização
+
+**Criar uma tarefa:**
+
+> Adicione uma tarefa chamada "Estudar Python" na lista A fazer.
+
+**Criar uma tarefa com prazo:**
+
+> Adicione uma tarefa chamada "Entregar relatório" para amanhã às 15h.
+
+**Consultar tarefas:**
+
+> Liste as tarefas cadastradas no Trello.
+
+**Atualizar o status:**
+
+> Mova a tarefa "Estudar Python" para Concluído.
+
+## 🧪 Testes realizados
+
+Durante o desenvolvimento, foram realizados testes de integração entre o agente e o Trello, incluindo:
+
+- Criação de cartões no quadro.
+- Listagem de tarefas existentes.
+- Movimentação de cartões entre as listas.
+- Interpretação de prazos em linguagem natural.
+- Execução do agente pela interface web do Google ADK.
+
+As funcionalidades principais foram verificadas durante o desenvolvimento.
+
+## 🔐 Segurança
+
+As chaves de API e os tokens de autenticação são armazenados em variáveis de ambiente.
+
+O arquivo `.env` não deve ser versionado. O repositório disponibiliza apenas um arquivo de exemplo para orientar a configuração.
+
+## 📚 Aprendizados
+
+Este projeto permitiu praticar:
+
+- Desenvolvimento de agentes de IA com Google ADK.
+- Integração de modelos Gemini com ferramentas Python.
+- Consumo de APIs externas.
+- Automação de tarefas no Trello.
+- Interpretação de comandos em linguagem natural.
+- Gerenciamento de credenciais e variáveis de ambiente.
+- Versionamento de código com Git e GitHub.
+
+## 👨‍💻 Autor
+
+**Joel Pereira**
+
+GitHub: [@JoelPereira31](https://github.com/JoelPereira31)
+
+Projeto desenvolvido para fins educacionais como parte de um desafio da **DIO — Digital Innovation One**.
