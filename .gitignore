@@ -1,0 +1,19 @@
+# Credenciais privadas
+.env
+.env.*
+!.env.exemplo
+!.env.example
+
+# Ambiente virtual Python
+.venv/
+venv/
+
+# Arquivos temporários Python
+__pycache__/
+*.pyc
+
+# Configurações locais
+.vscode/
+
+# Dados locais do Google ADK
+.adk/
